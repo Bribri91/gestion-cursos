@@ -1,0 +1,241 @@
+/* public/css/styles.css */
+
+/* Variables CSS: Definidas para colores y tamaños recurrentes */
+:root {
+  --color-fondo-principal: #f4f4f4; /* Color de fondo general (gris muy claro) */
+  --color-fondo-secundario: #333; /* Color de fondo para encabezados y pie de página (gris oscuro) */
+  --color-texto-principal: #333; /* Color de texto principal (gris oscuro) */
+  --color-texto-secundario: white; /* Color de texto en encabezados y pie de página (blanco) */
+  --color-primario: #007bff; /* Color azul principal para enlaces y botones */
+  --color-primario-hover: #0056b3; /* Color azul más oscuro al pasar el ratón */
+  --color-peligro: #dc3545; /* Color rojo para acciones de eliminación */
+  --color-peligro-hover: #c82333; /* Color rojo más oscuro al pasar el ratón */
+  --color-exito: #28a745; /* Color verde para acciones de actualización */
+  --color-exito-hover: #218838; /* Color verde más oscuro al pasar el ratón */
+  --padding-general: 1rem; /* Espaciado general */
+  --border-radius: 8px; /* Bordes redondeados generales */
+}
+
+/* Establece el estilo general del cuerpo del documento */
+body {
+  font-family: Arial, sans-serif; /* Fuente predeterminada */
+  background-color: var(--color-fondo-principal); /* Color de fondo usando variable */
+}
+
+/* Estilos para el encabezado */
+header {
+  background-color: var(--color-fondo-secundario); /* Fondo gris oscuro usando variable */
+  color: var(--color-texto-secundario); /* Texto blanco usando variable */
+  padding: var(--padding-general); /* Espaciado interno usando variable */
+}
+
+/* Estilos para la lista de navegación dentro del encabezado */
+nav ul {
+  list-style-type: none; /* Elimina los puntos de lista */
+  padding: 0; /* Sin espaciado interno */
+}
+
+/* Estilos para los elementos de la lista de navegación */
+nav ul li {
+  display: inline-block; /* Los elementos se muestran en línea */
+  margin-right: 1.5rem; /* Aumenta el espaciado a la derecha entre elementos */
+}
+
+/* Estilos para los enlaces de la lista de navegación */
+nav ul li a {
+  color: var(--color-texto-secundario); /* Color del texto de los enlaces usando variable */
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+}
+
+/* Asegurar que los enlaces tengan un estado de foco visible */
+nav ul li a:focus {
+  outline: 2px solid var(--color-primario); /* Contorno azul al enfocar usando variable */
+  outline-offset: 2px; /* Separación del contorno */
+}
+
+/* Estilos para la sección principal de contenido */
+main {
+  padding: var(--padding-general); /* Espaciado interno usando variable */
+  background-color: white; /* Fondo blanco */
+  border-radius: var(--border-radius); /* Bordes redondeados usando variable */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra ligera */
+  margin-bottom: var(--padding-general); /* Añade espacio al final del contenido principal */
+}
+
+/* Añadir espacio al final del contenido principal */
+main {
+  padding-bottom: 2rem; /* Añade suficiente espacio para que el pie de página no cubra el contenido */
+}
+
+/* Estilos para los formularios */
+form {
+  margin-top: var(--padding-general); /* Espaciado superior usando variable */
+}
+
+/* Estilos generales para los campos de formulario y botones */
+form input, form button {
+  display: block; /* Elementos se muestran en bloque */
+  margin: 0.5rem 0; /* Espaciado superior e inferior */
+  padding: 0.5rem; /* Espaciado interno */
+  width: 100%; /* Ancho completo del contenedor */
+  max-width: 300px; /* Ancho máximo limitado a 300px */
+  border-radius: var(--border-radius); /* Bordes redondeados usando variable */
+}
+
+/* Estilo específico para los botones de formulario */
+form button {
+  background-color: var(--color-fondo-secundario); /* Fondo gris oscuro usando variable */
+  color: var(--color-texto-secundario); /* Texto blanco usando variable */
+  border: none; /* Sin bordes */
+  cursor: pointer; /* Cursor cambia a mano */
+  transition: background-color 0.3s ease; /* Transición suave en fondo */
+}
+
+/* Cambia el fondo de los botones al pasar el ratón */
+form button:hover {
+  background-color: var(--color-primario-hover); /* Fondo azul más oscuro al pasar el ratón */
+}
+
+/* Estilos para la lista de cursos en la vista principal */
+ul.courses-list {
+  list-style-type: none; /* Elimina los puntos de lista */
+  padding: 0; /* Sin espaciado interno */
+  margin: 0; /* Sin margen */
+}
+
+/* Estilos para los elementos de la lista de cursos */
+ul.courses-list li {
+  background-color: white; /* Fondo blanco */
+  margin-bottom: 1rem; /* Espaciado inferior */
+  padding: var(--padding-general); /* Espaciado interno usando variable */
+  border-radius: var(--border-radius); /* Bordes redondeados usando variable */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Estilo para los títulos de los cursos */
+ul.courses-list li h3 {
+  margin: 0 0 0.5rem 0; /* Espaciado inferior */
+  color: var(--color-primario); /* Color azul para el título usando variable */
+}
+
+/* Estilo para los párrafos de los cursos */
+ul.courses-list li p {
+  margin: 0.5rem 0; /* Espaciado superior e inferior */
+}
+
+/* Elimina el margen inferior del último elemento de la lista de cursos */
+ul.courses-list li:last-child {
+  margin-bottom: 0; /* Sin margen inferior */
+}
+
+/* Estilos para el pie de página */
+footer {
+  background-color: var(--color-fondo-secundario); /* Fondo gris oscuro usando variable */
+  color: var(--color-texto-secundario); /* Texto blanco usando variable */
+  text-align: center; /* Texto centrado */
+  padding: var(--padding-general); /* Espaciado interno usando variable */
+  position: relative; /* Posiciona el pie de página al final*/
+  width: 100%; /* Ancho completo */
+}
+
+/* Elimina el margen de los párrafos dentro del pie de página */
+footer p {
+  margin: 0; /* Sin margen */
+}
+
+/* Estilos para las acciones de los cursos (botones) */
+.course-actions {
+  margin-top: var(--padding-general); /* Espaciado superior usando variable */
+  display: flex; /* Diseño flexible */
+  gap: 1rem; /* Espaciado entre elementos */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten a varias líneas */
+}
+
+/* Estilo específico para los botones de acción de curso */
+.course-actions button {
+  background-color: var(--color-primario); /* Fondo azul usando variable */
+  color: white; /* Texto blanco */
+  border: none; /* Sin bordes */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  cursor: pointer; /* Cursor cambia a mano */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave en fondo y sombra */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Cambia el fondo de los botones de acción al pasar el ratón */
+.course-actions button:hover {
+  background-color: var(--color-primario-hover); /* Fondo azul más oscuro al pasar el ratón */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa al pasar el ratón */
+}
+
+/* Estilo específico para los botones de eliminar */
+.delete-form button {
+  background-color: var(--color-peligro); /* Fondo rojo usando variable */
+  margin-left: 0.5rem; /* Espaciado a la izquierda */
+}
+
+/* Cambia el fondo de los botones de eliminar al pasar el ratón */
+.delete-form button:hover {
+  background-color: var(--color-peligro-hover); /* Fondo rojo más oscuro al pasar el ratón */
+}
+
+/* Estilos para el formulario de actualización */
+.update-form {
+  margin-top: var(--padding-general); /* Espaciado superior usando variable */
+}
+
+/* Estilo específico para los campos de entrada del formulario de actualización */
+.update-form input {
+  width: 100%; /* Ancho completo */
+  margin-bottom: 0.5rem; /* Espaciado inferior */
+  padding: 0.5rem; /* Espaciado interno */
+  border-radius: var(--border-radius); /* Bordes redondeados usando variable */
+}
+
+/* Estilo específico para los botones del formulario de actualización */
+.update-form button {
+  background-color: var(--color-exito); /* Fondo verde usando variable */
+  color: white; /* Texto blanco */
+  border: none; /* Sin bordes */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  cursor: pointer; /* Cursor cambia a mano */
+  border-radius: var(--border-radius); /* Bordes redondeados usando variable */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave en fondo y sombra */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Cambia el fondo de los botones de actualización al pasar el ratón */
+.update-form button:hover {
+  background-color: var(--color-exito-hover); /* Fondo verde más oscuro al pasar el ratón */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa al pasar el ratón */
+}
+
+/* Estilo general para el selector de moneda */
+select#currency {
+  padding: 8px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  border-radius: var(--border-radius); /* Bordes redondeados usando variable */
+  border: 1px solid #ccc; /* Borde gris claro */
+  background-color: #f9f9f9; /* Fondo gris claro */
+  color: var(--color-texto-principal); /* Color del texto usando variable */
+  cursor: pointer; /* Cursor cambia a mano */
+  outline: none; /* Sin contorno al enfocar */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Transición suave en fondo y borde */
+}
+
+/* Cambia el estilo del selector de moneda al estar en foco */
+select#currency:focus {
+  background-color: #fff; /* Fondo blanco */
+  border-color: var(--color-primario); /* Borde azul usando variable */
+}
+
+/* Estilo para la etiqueta del selector de moneda */
+label[for="currency"] {
+  font-weight: bold; /* Negrita para resaltar la etiqueta */
+  margin-right: 10px; /* Espaciado a la derecha de la etiqueta */
+}
+
+/* Estilo para las opciones dentro del selector de moneda */
+select#currency option {
+  padding: 8px; /* Espaciado interno de las opciones */
+}

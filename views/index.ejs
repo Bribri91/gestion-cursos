@@ -1,0 +1,53 @@
+<%- include('partials/header') %>
+<main>
+  <h2>Cursos disponibles</h2>
+  <p>Utilice el siguiente desplegable para selecionar los costos en la moneda de su interés.</p>
+
+  <!-- Selector de moneda -->
+  <form id="currencyForm" action="/" method="GET">
+    <label for="currency">Seleccione moneda:</label>
+    <select name="currency" id="currency" aria-label="Selector de moneda">
+      <% supportedCurrencies.forEach(curr => { %>
+        <option value="<%= curr %>" <%= currency === curr ? 'selected' : '' %>>
+          <%= curr %>
+        </option>
+      <% }) %>
+    </select>
+  </form>
+
+  <ul class="courses-list">
+    <% courses.forEach(course => { %>
+      <li>
+        <h3><%= course.title %></h3>
+        <p><%= course.description %></p>
+        <p>Precio en CRC: ₡<%= course.price %></p>
+        <p>Precio en <%= currency %>: 
+          <% if (currency === 'CRC') { %>
+            ₡<%= course.price %>
+          <% } else { %>
+            <%= currency %> <%= course.priceInSelectedCurrency %>
+          <% } %>
+        </p>
+      </li>
+    <% }) %>
+  </ul>
+</main>
+<%- include('partials/footer') %>
+<script>
+  // Asegurar que el formulario se envíe cuando se presiona Enter en el selector de moneda
+  /*
+  document.getElementById('currency').addEventListener('change', function() {
+    document.getElementById('currencyForm').submit();
+  });
+*/
+
+  // Enviar formulario cuando se presiona Enter mientras el selector está enfocado
+  document.getElementById('currency').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Prevenir comportamiento por defecto
+      document.getElementById('currencyForm').submit();
+    }
+  });
+</script>
+</body>
+</html>

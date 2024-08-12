@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+<main>
+  <a href="/admin/logout">Cerrar Sesión</a>
+  <p>¡Gestiona tus cursos aquí!</p>
+  <h2>Lista de Cursos</h2>
+  <ul class="courses-list">
+    <% courses.forEach(course => { %>
+      <li>
+        <h3><%= course.title %></h3>
+        <p><%= course.description %></p>
+        <p>Precio: <%= course.price %></p>
+        <div class="course-actions">
+          <button class="toggle-update-form">Actualizar</button>
+          <form action="/courses/<%= course._id %>?_method=DELETE" method="POST" class="delete-form">
+            <button type="submit">Eliminar</button>
+          </form>
+          <form action="/courses/<%= course._id %>?_method=PUT" method="POST" class="update-form" style="display: none;">
+            <input type="text" name="title" placeholder="Nuevo Título" required>
+            <input type="text" name="description" placeholder="Nueva Descripción" required>
+            <input type="text" name="price" placeholder="Nuevo Precio" required>
+            <button type="submit">Guardar Cambios</button>
+          </form>
+        </div>
+      </li>
+    <% }) %>
+  </ul>
+  <h2>Agregar Nuevo Curso</h2>
+  <form action="/courses" method="POST" class="add-form">
+    <input type="text" name="title" placeholder="Título" required>
+    <input type="text" name="description" placeholder="Descripción" required>
+    <input type="text" name="price" placeholder="Precio" required>
+    <button type="submit">Agregar</button>
+  </form>
+</main>
+<script src="/javascripts/scripts.js"></script>
+<%- include('partials/footer') %>
+</body>
+</html>
