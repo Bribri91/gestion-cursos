@@ -3,7 +3,7 @@ const router = express.Router();
 
 // Renderizar el formulario de login
 router.get('/login', (req, res) => {
-    res.render('admin-login'); // Asegúrate de que 'admin-login.ejs' esté en /views
+    res.render('admin-login'); 
 });
 
 // ruta para cerrar sesión
