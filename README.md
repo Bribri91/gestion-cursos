@@ -16,7 +16,7 @@ Requisitos Previos
 Instalación
 1. 
 Clona el repositorio:
-git clone https://github.com/tu-usuario/gestion-cursos.git
+git clone https://github.com/Bribri91/gestion-cursos.git
 2. 
 Navega al directorio del proyecto:
 cd gestion-cursos
@@ -28,7 +28,10 @@ Configura las variables de entorno:
 Crea un archivo `.env` en la raíz del proyecto y define las siguientes variables:
 MONGO_URI=mongodb://tu-usuario:tu-contraseña@localhost:27017/gestion-cursos
 PORT=3000
+ADMIN_PASSWORD=
+SESSION_SECRET=
 Ajusta `MONGO_URI` según tu configuración de MongoDB.
+Define la contraseña para ADMIN_PASSWORD y la cadena para SESSION_SECRET. 
 Uso
 1. 
 Inicia la aplicación:
@@ -61,6 +64,7 @@ Este proyecto fue generado utilizando `express-generator`, por lo que sigue la e
 │   ├── /javascripts
 │   │   └── scripts.js         # Scripts JS para la funcionalidad en el cliente
 ├── /routes                    # Rutas de la aplicación
+│   ├── admin.js
 │   ├── courses.js
 │   ├── index.js
 │   └── users.js
@@ -68,6 +72,7 @@ Este proyecto fue generado utilizando `express-generator`, por lo que sigue la e
 │   ├── /partials
 │   │   ├── header.ejs         # Encabezado común para todas las vistas
 │   │   └── footer.ejs         # Pie de página común para todas las vistas
+│   ├── admin.ejs            # Vista para gestionar la autentificación
 │   ├── courses.ejs            # Vista para gestionar cursos
 │   ├── index.ejs              # Vista principal
 │   └── error.ejs              # Vista para manejar errores
@@ -89,6 +94,5 @@ Tecnologías Utilizadas
 • Nodemon: Herramienta que reinicia automáticamente la aplicación en desarrollo.
 • Method-Override: Middleware para soportar métodos HTTP PUT y DELETE en formularios HTML.
 • dotenv: Carga de variables de entorno desde un archivo `.env`.
-Contribución
 Créditos
 • Autor: Mgtr. Alexander Sánchez Granados
